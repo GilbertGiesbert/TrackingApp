@@ -4,7 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.analytics.HitBuilders;
 import com.mwx.android.trackingapp.Constants;
@@ -35,7 +37,7 @@ public class ItemActivity extends TrackingActivity {
         }
 
         initTextView();
-        initButton();
+        initButtons();
     }
 
     private void initItem() {
@@ -66,11 +68,10 @@ public class ItemActivity extends TrackingActivity {
     }
 
 
-    private void initButton() {
+    private void initButtons() {
 
-        Button button = (Button) findViewById(R.id.button);
-
-        button.setOnClickListener(new View.OnClickListener() {
+        Button bt_buy = (Button) findViewById(R.id.bt_buy);
+        bt_buy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -86,5 +87,30 @@ public class ItemActivity extends TrackingActivity {
                 startActivity(intent);
             }
         });
+
+        Button bt_comment = (Button) findViewById(R.id.bt_comment);
+        bt_comment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                handleComment();
+            }
+        });
+    }
+
+    private void handleComment(){
+
+
+        EditText et = (EditText) findViewById(R.id.editText);
+        String comment = et.getText().toString();
+        et.setText("");
+
+        tracker.send(new HitBuilders.EventBuilder()
+                .setCategory("Action")
+                .setAction("Click send comment")
+                .setLabel(comment)
+                .build());
+
+        Toast.makeText(this, "Thank you for your comment", Toast.LENGTH_SHORT).show();
     }
 }

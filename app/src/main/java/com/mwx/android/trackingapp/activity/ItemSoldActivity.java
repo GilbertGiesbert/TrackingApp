@@ -77,7 +77,7 @@ public class ItemSoldActivity extends TrackingActivity {
 
     private void initButton() {
 
-        Button button = (Button) findViewById(R.id.button);
+        Button button = (Button) findViewById(R.id.bt_buy);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override

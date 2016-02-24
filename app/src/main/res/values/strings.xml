@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">TrackingApp</string>
+
+    <string name="itemList_headline">Choose an item.</string>
+
+    <string name="itemSold_headline">Awesome!</string>
+    <string name="itemSold_congrats">You got yourself a brand new %1$s for just %2$s$.</string>
+    <string name="itemSold_offer" >If you buy another item right away we will offer you a %1$s %% discount.</string>
+    <string name="itemSold_backToItemList">Back to item list</string>
+
+    <string name="item_headline">Good choice!</string>
+    <string name="item_promptToBuy">Feel free to buy %1$s for just %2$s$.</string>
+    <string name="item_bt_buy">buy</string>
+
+
+    <string name="menu_crash">Crash app</string>
+
 </resources>
